@@ -22,7 +22,14 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: "1rem", color: "#7f1d1d", background: "#ffe4e6", borderRadius: "10px" }}>
+        <div
+          style={{
+            padding: "1rem",
+            color: "#7f1d1d",
+            background: "#ffe4e6",
+            borderRadius: "10px",
+          }}
+        >
           <strong>Map failed to render.</strong>
           <p style={{ margin: "0.5rem 0 0" }}>{this.state.message}</p>
           <p style={{ margin: "0.5rem 0 0" }}>
@@ -47,26 +54,28 @@ function App() {
       <header className="topbar">
         <div>
           <p className="topbar__eyebrow">Endangered Language Observatory</p>
-          <h1 class="hero-glass">Project Saved</h1>
+          <h1 className="hero-glass">Project Saved</h1>
         </div>
 
-        <div className="topbar__kpis">
-          <div className="kpi-card">
-            <span>Total Countries</span>
-            <strong>{metrics.total}</strong>
+        {/* KPI group + logo on far right */}
+        <div className="topbar__right">
+          <div className="topbar__kpis">
+            <div className="kpi-card">
+              <span>Total Countries</span>
+              <strong>{metrics.total}</strong>
+            </div>
+            <div className="kpi-card kpi-card--high">
+              <span>High Risk</span>
+              <strong>{metrics.high}</strong>
+            </div>
+            <div className="kpi-card kpi-card--medium">
+              <span>Medium Risk</span>
+              <strong>{metrics.medium}</strong>
+            </div>
           </div>
-          <div className="kpi-card kpi-card--high">
-            <span>High Risk</span>
-            <strong>{metrics.high}</strong>
-          </div>
-          <div className="kpi-card kpi-card--medium">
-            <span>Medium Risk</span>
-            <strong>{metrics.medium}</strong>
-          </div>
-          <div className="kpi-card kpi-card--normal">
-            <span>Normal</span>
-            <strong>{metrics.normal}</strong>
-          </div>
+
+          {/* PNG is in /public/logo.png */}
+          <img src="/logo.png" className="topbar-logo" alt="Project logo" />
         </div>
       </header>
 
@@ -79,10 +88,7 @@ function App() {
 
           <div className="map-card__body">
             <ErrorBoundary>
-              <MapView
-                onCountryClick={setSelectedCountry}
-                onCountriesLoaded={setCountries}
-              />
+              <MapView onCountryClick={setSelectedCountry} onCountriesLoaded={setCountries} />
             </ErrorBoundary>
             <Legend />
           </div>

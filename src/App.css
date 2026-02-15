@@ -440,3 +440,16 @@
 .kpi-card--normal {
   display: none;
 }
+
+.topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.topbar-logo {
+  height: 100px;
+  width: auto;
+  filter: drop-shadow(0 0 10px rgba(140, 180, 255, 0.6));
+}
+
