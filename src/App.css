@@ -10,10 +10,12 @@
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(1200px 650px at 8% -10%, rgba(69, 124, 181, 0.24), transparent 60%),
-    radial-gradient(700px 400px at 93% -6%, rgba(206, 58, 58, 0.18), transparent 65%),
-    linear-gradient(180deg, #f8fbff 0%, #e8eef6 100%);
+    radial-gradient(1200px 650px at 8% -10%, rgba(70, 140, 255, 0.25), transparent 60%),
+    radial-gradient(700px 400px at 92% 0%, rgba(255, 90, 90, 0.18), transparent 65%),
+    radial-gradient(600px 500px at 50% 100%, rgba(90, 180, 255, 0.15), transparent 60%),
+    linear-gradient(180deg, #06162f 0%, #0a2346 100%);
 }
+
 
 .topbar {
   display: flex;
@@ -48,32 +50,58 @@
 .kpi-card {
   border-radius: 12px;
   padding: 10px 12px;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(78, 106, 145, 0.2);
-  box-shadow: 0 9px 20px rgba(28, 43, 65, 0.07);
+
+  /* Navy glass base */
+  background: linear-gradient(180deg, #081d3a 0%, #0b2b55 100%);
+  color: #e9f1ff;
+
+  border: 1px solid rgba(120, 160, 255, 0.25);
+
+  box-shadow:
+    0 0 0 1px rgba(120, 160, 255, 0.15),
+    0 8px 22px rgba(20, 60, 120, 0.6),
+    0 0 22px rgba(90, 150, 255, 0.45);
+
+  backdrop-filter: blur(6px);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .kpi-card span {
-  display: block;
-  font-size: 12px;
-  color: #4a607e;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
 }
 
 .kpi-card strong {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(150, 190, 255, 0.45),
+    0 14px 36px rgba(40, 100, 200, 0.7),
+    0 0 32px rgba(130, 180, 255, 0.75);
+}
+
+
 .kpi-card--high strong {
-  color: #b31f1f;
+  color: #ff6b6b;
+  text-shadow: 0 0 10px rgba(255, 90, 90, 0.7);
 }
 
 .kpi-card--medium strong {
-  color: #b27a00;
+  color: #ffd166;
+  text-shadow: 0 0 10px rgba(255, 210, 90, 0.7);
 }
 
 .kpi-card--normal strong {
-  color: #235f9e;
+  color: #6bbcff;
+  text-shadow: 0 0 10px rgba(120, 180, 255, 0.7);
 }
+
 
 .layout {
   display: grid;
@@ -83,11 +111,19 @@
 
 .map-card,
 .panel-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(77, 106, 148, 0.24);
-  border-radius: 16px;
-  box-shadow: 0 16px 35px rgba(17, 41, 68, 0.12);
+  padding: 18px;
+
+  background: linear-gradient(180deg, #071a34 0%, #0b2c56 100%);
+  color: #e9f1ff;
+
+  border: 1px solid rgba(130, 170, 255, 0.25);
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 34px rgba(10, 40, 100, 0.7),
+    0 0 30px rgba(100, 160, 255, 0.35);
 }
+
 
 .map-card {
   overflow: hidden;
@@ -320,3 +356,84 @@
     max-width: 66%;
   }
 }
+
+/* Main USA panel text */
+.country-panel,
+.country-panel * {
+  color: #ffffff;
+}
+
+/* Softer secondary text */
+.country-panel__section p,
+.country-panel__section li,
+.panel-metric span {
+  color: rgba(210, 225, 255, 0.85);
+}
+
+/* Section dividers */
+.country-panel__section {
+  border-top: 1px solid rgba(140, 180, 255, 0.25);
+}
+
+/* Light stat cards inside the navy USA panel */
+.country-panel .panel-metric {
+  color: #0b162b;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Labels */
+.country-panel .panel-metric span {
+  color: #4a607e;
+}
+
+/* Numbers */
+.country-panel .panel-metric strong {
+  color: #0b162b;
+  text-shadow: none;
+}
+
+.hero-glass {
+  font-size: clamp(3.6rem, 7vw, 5rem); /* bigger */
+
+  font-weight: 800;
+  letter-spacing: 0.05em;
+
+  /* Softer glass gradient */
+  background: linear-gradient(
+    90deg,
+    #f2f6ff 0%,
+    #d6e4ff 35%,
+    #b9d1ff 55%,
+    #f2f6ff 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Smooth glow (less harsh blue) */
+  text-shadow:
+    0 0 12px rgba(180, 205, 255, 0.9),
+    0 0 26px rgba(140, 180, 255, 0.7),
+    0 0 44px rgba(110, 160, 255, 0.55);
+
+  filter: drop-shadow(0 10px 20px rgba(70,120,220,.45));
+
+  user-select: none;
+}
+
+.map-card__header h2 {
+  color: #0b162b;
+}
+.legend p {
+  display: none;
+}
+.legend h3,
+.legend li {
+  color: #0b162b;
+}
+.legend-dot--normal {
+  background: #ffffff;
+  border: 1px solid #0b162b;
+}
+

@@ -47,7 +47,7 @@ function App() {
       <header className="topbar">
         <div>
           <p className="topbar__eyebrow">Endangered Language Observatory</p>
-          <h1>Global Risk Intelligence Dashboard</h1>
+          <h1 class="hero-glass">Project Saved</h1>
         </div>
 
         <div className="topbar__kpis">
