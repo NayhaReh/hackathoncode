@@ -1,0 +1,41 @@
+.layout{
+  display:grid;
+  grid-template-columns: 1fr 340px;
+  height: 85vh;
+}
+
+.map{
+  height: 100%;
+  width: 100%;
+}
+
+.panel{
+  padding: 12px;
+  border-left: 1px solid #ddd;
+  overflow: auto;
+}
+
+.panelTitleRow{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.swatch{
+  display:inline-block;
+  width:14px;
+  height:14px;
+  border-radius:3px;
+  border:1px solid #999;
+}
+
+.legendBlock{ margin-top: 10px; }
+.legendBar{
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #00a651, #ffd200, #d7191c);
+}
+.legendLabels{
+  display:flex;
+  justify-content:space-between;
+}
